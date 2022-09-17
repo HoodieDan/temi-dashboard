@@ -1,0 +1,8 @@
+body {
+  background: url('./images/bg.png');
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+}
+a {
+  text-decoration: none;
+}
