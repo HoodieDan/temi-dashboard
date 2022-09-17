@@ -1,138 +1,12 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-2 col-1 men">
+    <div class="row main">
+        <div class="col-lg-2 col-1">
             <SideMenu />
         </div>
         <div class="col-lg-10 col-11">
             <div class="container">
-                <div class="row mt-5">
-                    <!-- first row -->
-                    <div class="col-lg-4 col-md-4">
-                        <div class="search">
-                            <i class="fa-solid fa-magnifying-glass icon"></i>
-                            <input type="text" class="input field" />
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-0">
-
-                    </div>
-                    <div class="col-lg-4 col-md-4 top-right">
-                        <button class="btn"><i class="fa fa-solid fa-plus"></i> Search</button>
-                        <i class="faw fa-regular fa-comment-dots"></i>
-                        <i class="faw fa-regular fa-bell"></i>
-                        <img src="./assets/images/user.png" alt="user image" class="user">
-                    </div>
-
-                    <!-- Second row -->
-                    <div class="col-lg-3 mt-3">
-                        <div class="box">
-                            <div class="box-left">
-                                <p class="small">Total Sales</p>
-                                <h5 class="blue">$11,002,395</h5>
-                                <div class="bt">
-                                    <img src="./assets/images/up.png" alt="up" class="img-fluid up">
-                                    <p class="tiny">40% last week</p>
-                                </div>
-                            </div>
-                            <div class="box-right">
-                                <img src="./assets/images/money.png" alt="money" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-3">
-                        <div class="box">
-                            <div class="box-left">
-                                <p class="small">B2B Sales</p>
-                                <h5 class="blue">$9,035,004</h5>
-                                <div class="bt">
-                                    <img src="./assets/images/up.png" alt="up" class="img-fluid up">
-                                    <p class="tiny">12% last week</p>
-                                </div>
-                            </div>
-                            <div class="box-right">
-                                <img src="./assets/images/bags.png" alt="money" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-3">
-                        <div class="box">
-                            <div class="box-left">
-                                <p class="small">Online Sales</p>
-                                <h5 class="blue">$1,843,900</h5>
-                                <div class="bt">
-                                    <img src="./assets/images/up.png" alt="up" class="img-fluid up">
-                                    <p class="tiny">2% last week</p>
-                                </div>
-                            </div>
-                            <div class="box-right">
-                                <img src="./assets/images/cart.png" alt="money" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-3">
-                        <div class="box">
-                            <div class="box-left">
-                                <p class="small">Store Sales</p>
-                                <h5 class="blue">$105,654</h5>
-                                <div class="bt">
-                                    <img src="./assets/images/up.png" alt="up" class="img-fluid up">
-                                    <p class="tiny">5% last week</p>
-                                </div>
-                            </div>
-                            <div class="box-right">
-                                <img src="./assets/images/list.png" alt="money" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Third row  -->
-                    <div class="col-lg-8 mt-3">
-                        <div class="chart-box">
-                            <div class="chart-box-top row">
-                                <div class="col-lg-6">
-                                    <div class="rev">
-                                        <h5 class="revenue me-1">Revenue</h5>
-                                        <p class="rev-p">This Year</p>
-                                    </div>
-                                    <div class="rev">
-                                        <h6 class="yellow me-1">$653,000,340</h6>
-                                        <p class="rev-under-p">All Time</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="revex">
-                                        <div class="rv">
-                                            <div class="yellow-dot"></div>
-                                            <p>Revenue</p>
-                                        </div>
-                                        <div class="rv">
-                                            <div class="blue-dot"></div>
-                                            <p>Expense</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="w-100 line-chart">
-                                <LineChart />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mt-3">
-                        <div class="chart-box-2">
-                            <div class="rev mb-4">
-                                <h5 class="revenue me-1">Products Sent</h5>
-                                <p class="rev-p">This Month</p>
-                            </div>
-                            <div class="w-100 donut-chart">
-                                <DonutChart />
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <RouteView />
             </div>
         </div>
     </div>
@@ -140,9 +14,8 @@
 </template>
 
 <script>
-import LineChart from "./components/LineChart.vue";
-import DonutChart from "./components/DonutChart.vue";
 import SideMenu from "./components/Menu.vue";
+import RouteView from "./components/RouteView.vue";
 
 export default {
     data() {
@@ -151,9 +24,8 @@ export default {
         }
     },
     components: {
-    LineChart,
-    DonutChart,
-    SideMenu
+    SideMenu,
+    RouteView
 }
 }
 </script>
@@ -170,9 +42,15 @@ export default {
 .container-fluid {
     padding-left: 0;
 }
+.main {
+    position: relative;
+}
 .menu {
     height: 100vh;
-    width: 100%;
+    width: 16.67%;
+    position: fixed;
+    left: 0;
+    top: 0;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(45px);
     color: #999999;
@@ -277,7 +155,7 @@ input[type='text']::focus {
     cursor: pointer;
 }
 .box:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 .bt {
     display: flex;
@@ -310,6 +188,7 @@ input[type='text']::focus {
     color: #999999;
     margin: 0.5rem 0.2rem;
     padding: 2rem;
+    height: 100%;
     border-radius: 10px;
 }
 .revenue {
@@ -366,6 +245,68 @@ input[type='text']::focus {
     color: #999999;
     margin: 0.5rem 0.2rem;
     padding: 2rem;
+    height: 100%;
     border-radius: 10px;
+}
+.halves {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.half-chart-box {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(45px);
+    color: #999999;
+    margin: 0.5rem 0.2rem;
+    padding: 2rem;
+    height: 45%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+h4 {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+h4 span {
+    font-size: 0.8rem;
+    color: #999999;
+}
+.bar-container {
+    width: 100%;
+    background-color: #999999;
+    height: 0.3rem;
+    border-radius: 32px;
+    position: relative;
+}
+.bar {
+    background-color: #FFA22B;
+    height: 100%;
+    border-radius: 32px;
+    position: absolute;
+}
+@media (max-width: 992px) {
+    .menu {
+        width: 8.33%;
+    }
+    .navi span {
+        display: none;
+    }
+    .link {
+        justify-content: center;
+        align-items: center;
+    }
+    .fa {
+        margin-right: 0;
+    }
+}
+@media (max-width: 768px) {
+    .menu {
+        padding: 4rem 0;
+    }
+    .active {
+        border-radius: 0;
+    }
 }
 </style>

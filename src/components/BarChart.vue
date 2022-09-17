@@ -4,10 +4,9 @@
         :type="type"
         :width="width"
         :height="height"
-        :dataformat="dataFormat"
+        :dataFormat="dataFormat"
         :dataSource="dataSource"
-    >
-    </fusioncharts>
+    ></fusioncharts>
   </div>
 </template>
 
@@ -20,19 +19,10 @@ import { FCComponent } from "vue-fusioncharts";
 Charts(FusionCharts);
 
 const dataSource = {
-  'styleDefinition': {
-    'transparent': {
-        'background-color': 'transparent',
-    }
-  },
   chart: {
-    numdivlines: "5",
-    showvalues: "0",
-    legenditemfontsize: "20",
-    legenditemfontbold: "5",
+    plottooltext: "<b>$dataValue</b> $seriesName customers in $label",
     palettecolors: "#0B8CFB, #FFA22B",
-    plottooltext: "<b>$dataValue</b>% of revenue on $label",
-    theme: "candy"
+    theme: "fusion"
   },
   categories: [
     {
@@ -60,7 +50,7 @@ const dataSource = {
         },
         {
           label: "Aug"
-        }
+        },
       ]
     }
   ],
@@ -68,90 +58,79 @@ const dataSource = {
     {
       data: [
         {
-          value: "0"
+          value: "25000"
         },
         {
-          value: "40"
+          value: "18000"
         },
         {
-          value: "76"
+          value: "17000"
         },
         {
-          value: "74"
+          value: "15000"
         },
         {
-          value: "86"
+          value: "75000"
         },
         {
-          value: "10"
+          value: "18000"
         },
         {
-          value: "24"
+          value: "17000"
         },
         {
-          value: "0"
-        }
+          value: "15000"
+        },
       ]
     },
     {
       data: [
         {
-          value: "0"
+          value: "50000"
         },
         {
-          value: "36"
+          value: "80000"
         },
         {
-          value: "22"
+          value: "60000"
         },
         {
-          value: "60"
+          value: "30000"
         },
         {
-          value: "82"
+          value: "20000"
         },
         {
-          value: "18"
+          value: "30000"
         },
         {
-          value: "31"
+          value: "30000"
         },
         {
-          value: "0"
-        }
+          value: "40000"
+        },
       ]
     }
-  ]
+  ],
 };
 
 export default {
   components: {
-    fusioncharts: FCComponent,
+    fusioncharts: FCComponent
   },
   data: () => ({
-    type: "msspline",
+    type: "msbar3d",
     width: "100%",
     height: "100%",
     dataFormat: "json",
     dataSource
   })
 };
+
 </script>
 
 <style>
-#chart-container {
-    height: 15rem;
-}
-#fc-1 {
+#fc-3 {
     height: 100%;
-}
-rect {
-    fill: none;
-}
-#raphael-paper-6, 
-#raphael-paper-140, 
-#raphael-paper-269,
-.raphael-group-25-canvas {
-    background-color: transparent !important;
 }
 </style>
