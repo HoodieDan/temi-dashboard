@@ -90,7 +90,7 @@ export default {
 }  
 .search {
     width: 100%;
-    margin-bottom: 0.6rem;
+    /* margin-bottom: 0.6rem; */
 } 
 .icon {
     padding: 10px;
@@ -307,6 +307,13 @@ h4 span {
     }
     .active {
         border-radius: 0;
+    }
+    .search {
+    /* width: 100%; */
+    margin-bottom: 0.6rem;
+    } 
+    .input {
+        width: 100%;
     }
 }
 </style>
